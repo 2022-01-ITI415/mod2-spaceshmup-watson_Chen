@@ -18,7 +18,7 @@ public class Main : MonoBehaviour {
     {
         WeaponType.blaster, WeaponType.blaster, WeaponType.spread, WeaponType.shield
     };
-
+    
     private BoundsCheck bndCheck;
 
     public void ShipDestroyed( Enemy e)
@@ -39,6 +39,7 @@ public class Main : MonoBehaviour {
             // Set it to the position of the destroyed ship
             pu.transform.position = e.transform.position;
         }
+        Scorecontroller.instance.AddPoint();
     }
 
     private void Awake()
