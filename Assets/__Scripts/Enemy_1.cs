@@ -15,6 +15,8 @@ public class Enemy_1 : Enemy {
     private float x0; // The initial x value of pos
     private float birthTime;
 
+    public float shield_Level = 1;
+
 	// Use this for initialization
 	void Start()
     {
@@ -43,5 +45,16 @@ public class Enemy_1 : Enemy {
         base.Move();
 
         // print (bndCheck.isOnScreen);
+    }
+    public float shieldLevel {
+        get {
+            return(shield_Level);
+        }
+        set{
+            shield_Level = Mathf.Min( value, 2 );
+            if (value <0) {
+                Destroy(this.gameObject);
+            } 
+        }
     }
 }
