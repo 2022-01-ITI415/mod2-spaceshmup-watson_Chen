@@ -13,8 +13,8 @@ public class Enemy_3 : Enemy { // Enemy_3 extends Enemy
     [Header("Set Dynamically: Enemy_3")]
     public Vector3[] points;
     public float birthTime;
-
-
+    
+ 
     private void Start()
     {
         
@@ -53,8 +53,6 @@ public class Enemy_3 : Enemy { // Enemy_3 extends Enemy
         Bullet.transform.position = transform.position;
         
     }
-
-
     public override void Move()
     {
         // Bezier curves work based on a u value between 0 & 1
@@ -74,6 +72,4 @@ public class Enemy_3 : Enemy { // Enemy_3 extends Enemy
         p12 = ((1 - u) * points[1]) + (u * points[2]);
         pos = ((1 - u) * p01) + (u * p12);
     }
-
-   
 }
