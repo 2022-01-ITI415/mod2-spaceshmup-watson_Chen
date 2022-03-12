@@ -15,6 +15,8 @@ public class Enemy_1 : Enemy {
     private float x0; // The initial x value of pos
     private float birthTime;
 
+    public float shield_Level = 3;
+    private GameObject lastTriggerGo;
 	// Use this for initialization
 	void Start()
     {
@@ -44,4 +46,19 @@ public class Enemy_1 : Enemy {
 
         // print (bndCheck.isOnScreen);
     }
+    public void OnTriggerEnter(Collider hit)
+    {
+       if (hit.gameObject.tag == "Shield") 
+       {
+          shield_Level --; 
+       } 
+       if (hit.gameObject.tag == "Enemy_1")
+       {
+          Destroy(this.gameObject); 
+       } 
+
+    
+    } 
 }
+
+

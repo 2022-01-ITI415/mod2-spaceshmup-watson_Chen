@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy_3 : Enemy { // Enemy_3 extends Enemy
+    public GameObject BulletPrefab;
+    public float      BulletSpeed = 30;  
     // Enemy_3 will move following a Bezier curve, which is a linear
     // interpolation between more than two points.
     [Header("Set in Inspector: Enemy_3")]
@@ -11,9 +13,13 @@ public class Enemy_3 : Enemy { // Enemy_3 extends Enemy
     [Header("Set Dynamically: Enemy_3")]
     public Vector3[] points;
     public float birthTime;
-
+    
+ 
     private void Start()
     {
+        
+        Invoke("DropBullet",0.1f);
+
         points = new Vector3[3]; // Initialize points
 
         // The start position has already been set by Main.SpawnEnemy()
@@ -40,6 +46,13 @@ public class Enemy_3 : Enemy { // Enemy_3 extends Enemy
         birthTime = Time.time;
     }
 
+
+    void DropBullet ()
+    {
+        GameObject Bullet = Instantiate<GameObject>(BulletPrefab);
+        Bullet.transform.position = transform.position;
+        
+    }
     public override void Move()
     {
         // Bezier curves work based on a u value between 0 & 1

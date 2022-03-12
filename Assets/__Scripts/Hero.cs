@@ -96,6 +96,7 @@ public class Hero : MonoBehaviour {
         {
             print("Triggered by non-Enemy: " + go.name);
         }
+        
     }
 
     public void AbsorbPowerUp(GameObject go)
